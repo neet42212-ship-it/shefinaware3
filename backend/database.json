@@ -1,0 +1,125 @@
+{
+  "users": [
+    {
+      "_id": "1776075380985",
+      "name": "nav",
+      "password": "12345",
+      "mobile": "9815493223",
+      "progress": {
+        "modulesCompleted": 0,
+        "profileStrength": 0,
+        "streak": 1
+      },
+      "goals": {}
+    },
+    {
+      "_id": "1776078267498",
+      "name": "ABC",
+      "password": "789",
+      "mobile": "9456732468",
+      "progress": {
+        "modulesCompleted": 0,
+        "profileStrength": 0,
+        "streak": 1
+      },
+      "goals": {}
+    },
+    {
+      "_id": "1776660360482",
+      "name": "sanjana ",
+      "password": "890",
+      "mobile": "9877932989",
+      "progress": {
+        "modulesCompleted": 4,
+        "profileStrength": 60,
+        "streak": 1
+      },
+      "goals": {},
+      "savingsGoal": "35000",
+      "currentSavings": "5000",
+      "schemesMatched": 14
+    },
+    {
+      "_id": "1776700492636",
+      "name": "navneet",
+      "password": "123",
+      "mobile": "9872826332",
+      "progress": {
+        "modulesCompleted": 6,
+        "profileStrength": 100,
+        "streak": 1
+      },
+      "goals": {},
+      "savingsGoal": "35000",
+      "currentSavings": "5000",
+      "schemesMatched": 14
+    },
+    {
+      "_id": "1776871914925",
+      "name": "navneet",
+      "password": "12345",
+      "mobile": "8360740234",
+      "progress": {
+        "modulesCompleted": 6,
+        "profileStrength": 100,
+        "streak": 1
+      },
+      "goals": {},
+      "savingsGoal": "40000",
+      "currentSavings": "11000",
+      "schemesMatched": 14
+    },
+    {
+      "_id": "1776915289186",
+      "name": "navneet",
+      "password": "1234",
+      "mobile": "987793297889",
+      "progress": {
+        "modulesCompleted": 6,
+        "profileStrength": 100,
+        "streak": 1
+      },
+      "goals": {},
+      "schemesMatched": 14
+    },
+    {
+      "_id": "1776926776792",
+      "name": "navneet kaur",
+      "password": "6785",
+      "mobile": "1234567891",
+      "progress": {
+        "modulesCompleted": 2,
+        "profileStrength": 30,
+        "streak": 1
+      },
+      "goals": {}
+    },
+    {
+      "_id": "1776928423470",
+      "name": "badal",
+      "password": "908",
+      "mobile": "7814566954",
+      "progress": {
+        "modulesCompleted": 0,
+        "profileStrength": 0,
+        "streak": 1
+      },
+      "goals": {}
+    },
+    {
+      "_id": "1776928534071",
+      "name": "navneet kaur",
+      "password": "90",
+      "mobile": "9876543293",
+      "progress": {
+        "modulesCompleted": 6,
+        "profileStrength": 100,
+        "streak": 1
+      },
+      "goals": {},
+      "savingsGoal": "35000",
+      "currentSavings": "5000",
+      "schemesMatched": 14
+    }
+  ]
+}
