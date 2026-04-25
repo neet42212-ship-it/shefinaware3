@@ -22,6 +22,25 @@ if (MONGO_URI) {
   console.log('⚠️ No MONGO_URI found, using local JSON database (not persistent on Render)');
 }
 
+// Auto-Seed Logic
+const seedIfEmpty = async () => {
+  try {
+    const count = await Scheme.countDocuments();
+    if (count === 0) {
+      console.log('🌱 Database empty. Auto-seeding initial schemes...');
+      const mockSchemes = [
+        { name: "PRADHAN MANTRI MUDRA YOJANA", description: "Loans up to ₹10 Lakhs for small/micro enterprises.", benefitAmount: 1000000, url: "https://www.mudra.org.in/" },
+        { name: "MAHILA SAMMAN SAVINGS CERTIFICATE", description: "A small savings scheme for women and girls offering 7.5% interest.", benefitAmount: 200000, url: "https://www.indiapost.gov.in/" },
+        { name: "STAND-UP INDIA SCHEME", description: "Bank loans between ₹10 lakh and ₹1 crore.", benefitAmount: 10000000, url: "https://www.standupmitra.in/" }
+      ];
+      await Scheme.insertMany(mockSchemes);
+      console.log('✅ Auto-seeding complete.');
+    }
+  } catch (err) {
+    console.error('❌ Auto-seed error:', err.message);
+  }
+};
+
 // File System Local Database logic
 const fs = require('fs');
 const DB_PATH = './database.json';
@@ -220,9 +239,11 @@ app.get('/api/schemes', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`🚀 Backend server running on port ${PORT}`);
-  if (!process.env.MONGO_URI) {
+  if (process.env.MONGO_URI) {
+    await seedIfEmpty();
+  } else {
     console.log(`📂 Using local database file: ${DB_PATH}`);
   }
 });
