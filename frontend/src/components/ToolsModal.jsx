@@ -32,7 +32,7 @@ export default function ToolsModal({ isOpen, onClose, toolType, userProfile, onP
     const token = localStorage.getItem('token');
     if (!token) return;
     try {
-      await fetch('http://localhost:5000/api/auth/profile', {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/auth/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

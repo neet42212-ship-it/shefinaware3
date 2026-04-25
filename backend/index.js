@@ -12,6 +12,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// MongoDB Connection (Preferred for production)
+const MONGO_URI = process.env.MONGO_URI;
+if (MONGO_URI) {
+  mongoose.connect(MONGO_URI)
+    .then(() => console.log('✅ Connected to MongoDB Atlas'))
+    .catch(err => console.error('❌ MongoDB Connection Error:', err));
+} else {
+  console.log('⚠️ No MONGO_URI found, using local JSON database (not persistent on Render)');
+}
+
 // File System Local Database logic
 const fs = require('fs');
 const DB_PATH = './database.json';
@@ -210,4 +220,9 @@ app.get('/api/schemes', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Backend server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`🚀 Backend server running on port ${PORT}`);
+  if (!process.env.MONGO_URI) {
+    console.log(`📂 Using local database file: ${DB_PATH}`);
+  }
+});

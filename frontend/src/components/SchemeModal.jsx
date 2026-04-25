@@ -8,7 +8,7 @@ export default function SchemeModal({ isOpen, onClose, userProfile }) {
   useEffect(() => {
     if (isOpen) {
       setLoading(true);
-      fetch('https://shefinaware3.onrender.com')
+      fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/schemes`)
         .then(res => res.json())
         .then(data => { 
           let tailoredSchemes = data;

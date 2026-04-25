@@ -29,7 +29,7 @@ export default function Home() {
     const token = localStorage.getItem('token');
     if (!token) return;
     try {
-      const res = await fetch('https://shefinaware3.onrender.com/api/auth/me', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/auth/me`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) setUserProfile(await res.json());
@@ -54,16 +54,21 @@ export default function Home() {
         userName={userProfile ? userProfile.name : "Sign In"}
       />
       <main>
-        <HeroBanner lang={lang} />
-        <Dashboard 
-          lang={lang} 
-          userProfile={userProfile}
-          onSchemesClick={() => setIsSchemesOpen(true)}
-          onToolClick={(type) => setToolType(type)}
-          onAccessibilityClick={() => setIsChatOpen(true)}
-          onVoiceNavClick={() => setIsListening(true)}
-        />
-      </main>
+  <HeroBanner lang={lang} />
+
+  <button onClick={() => setToolType("loan_calc")}>
+    Click me
+  </button>
+
+  <Dashboard 
+    lang={lang} 
+    userProfile={userProfile}
+    onSchemesClick={() => setIsSchemesOpen(true)}
+    onToolClick={(type) => setToolType(type)}
+    onAccessibilityClick={() => setIsChatOpen(true)}
+    onVoiceNavClick={() => setIsListening(true)}
+  />
+</main>
       <VoiceFAB toggleChat={() => setIsChatOpen(!isChatOpen)} />
       <Chatbot isOpen={isChatOpen} toggleChat={() => setIsChatOpen(!isChatOpen)} />
       
